@@ -1,0 +1,3 @@
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/lab1_realtor.dir
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/edit_cache.dir
