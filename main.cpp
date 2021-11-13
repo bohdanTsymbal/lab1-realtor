@@ -19,6 +19,8 @@ vector<vector<double>> decoupleTargetVariable(vector<vector<double>> & trainingD
 void addConstantColumn(vector<vector<double>> & trainingData);
 vector<vector<double>> transformToMatrix(const vector<RealEstate> & trainingData);
 vector<vector<double>> transposeMatrix(const vector<vector<double>> & matrix);
+vector<vector<double>> getSubmatrix(const vector<vector<double>> & matrix, int elRow, int elColumn);
+double calculateDeterminant(vector<vector<double>> matrix);
 vector<vector<double>> inverseMatrix(const vector<vector<double>> & matrix);
 vector<vector<double>> multiplyMatrices(const vector<vector<double>> & leftMatrix,
                                         const vector<vector<double>> & rightMatrix);
@@ -63,6 +65,14 @@ int main() {
     cout << "Training data matrix:" << endl;
     printMatrix(trainMatrix);
 
+    addConstantColumn(trainMatrix);
+    cout << "Training data matrix with constant:" << endl;
+    printMatrix(trainMatrix);
+
+    vector<vector<double>> transposedTrainMatrix = transposeMatrix(trainMatrix);
+    cout << "Transposed training data matrix:" << endl;
+    printMatrix(transposedTrainMatrix);
+
     return 0;
 }
 
@@ -104,4 +114,45 @@ vector<vector<double>> decoupleTargetVariable(vector<vector<double>> & trainingD
     }
 
     return targetVariableVector;
+}
+
+void addConstantColumn(vector<vector<double>> & trainingData) {
+    for (vector<double> & observation : trainingData) {
+        observation.insert(observation.begin(), 1.0);
+    }
+}
+
+vector<vector<double>> transposeMatrix(const vector<vector<double>> & matrix) {
+    vector<vector<double>> transposedMatrix;
+
+    for (const double & value : matrix[0]) {
+        transposedMatrix.emplace_back();
+    }
+
+    for (int i = 0; i < matrix[0].size(); i++) {
+        for (const vector<double> & row : matrix) {
+            transposedMatrix[i].push_back(row[i]);
+        }
+    }
+
+    return transposedMatrix;
+}
+
+vector<vector<double>> getSubmatrix(const vector<vector<double>> & matrix, int elRow, int elColumn) {
+    
+}
+
+double calculateDeterminant(vector<vector<double>> matrix) {
+    if (matrix.size() == 1 && matrix[0].size() == 1) {
+        return matrix[0][0];
+    }
+    if (matrix.size() == 2 && matrix[0].size() == 2) {
+        return matrix[1][1] * matrix[0][0] - matrix[1][0] * matrix [0][1];
+    }
+
+
+}
+
+vector<vector<double>> inverseMatrix(const vector<vector<double>> & matrix) {
+
 }
