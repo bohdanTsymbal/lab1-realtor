@@ -33,3 +33,7 @@
 
 # Test data
 test.txt
+
+# Logs
+*.log
+cmake-build-debug

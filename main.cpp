@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -20,7 +21,8 @@ void addConstantColumn(vector<vector<double>> & trainingData);
 vector<vector<double>> transformToMatrix(const vector<RealEstate> & trainingData);
 vector<vector<double>> transposeMatrix(const vector<vector<double>> & matrix);
 vector<vector<double>> getSubmatrix(const vector<vector<double>> & matrix, int elRow, int elColumn);
-double calculateDeterminant(vector<vector<double>> matrix);
+double calculateDeterminant(const vector<vector<double>> & matrix);
+double getCofactor(const vector<vector<double>> & matrix, int elRow, int elColumn);
 vector<vector<double>> inverseMatrix(const vector<vector<double>> & matrix);
 vector<vector<double>> multiplyMatrices(const vector<vector<double>> & leftMatrix,
                                         const vector<vector<double>> & rightMatrix);
@@ -72,6 +74,18 @@ int main() {
     vector<vector<double>> transposedTrainMatrix = transposeMatrix(trainMatrix);
     cout << "Transposed training data matrix:" << endl;
     printMatrix(transposedTrainMatrix);
+
+    vector<vector<double>> matricesMultiplication = multiplyMatrices(transposedTrainMatrix, trainMatrix);
+    cout << "Matrices multiplication result:" << endl;
+    printMatrix(matricesMultiplication);
+
+    double matricesMultiplicationDeterminant = calculateDeterminant(matricesMultiplication);
+    cout << "Determinant:" << endl;
+    cout << matricesMultiplicationDeterminant << endl;
+
+    vector<vector<double>> inversedMultiplication = inverseMatrix(matricesMultiplication);
+    cout << "Inversed multiplication matrix:" << endl;
+    printMatrix(inversedMultiplication);
 
     return 0;
 }
@@ -139,10 +153,23 @@ vector<vector<double>> transposeMatrix(const vector<vector<double>> & matrix) {
 }
 
 vector<vector<double>> getSubmatrix(const vector<vector<double>> & matrix, int elRow, int elColumn) {
-    
+    vector<vector<double>> submatrix;
+
+    for (int i = 0; i < matrix.size(); i++) {
+        if (i != elRow) {
+            submatrix.emplace_back();
+            for (int j = 0; j < matrix[i].size(); j++) {
+                if (j != elColumn) {
+                    submatrix[submatrix.size() - 1].push_back(matrix[i][j]);
+                }
+            }
+        }
+    }
+
+    return submatrix;
 }
 
-double calculateDeterminant(vector<vector<double>> matrix) {
+double calculateDeterminant(const vector<vector<double>> & matrix) {
     if (matrix.size() == 1 && matrix[0].size() == 1) {
         return matrix[0][0];
     }
@@ -150,9 +177,60 @@ double calculateDeterminant(vector<vector<double>> matrix) {
         return matrix[1][1] * matrix[0][0] - matrix[1][0] * matrix [0][1];
     }
 
+    double determinant = 0.0;
+    for (int i = 0; i < matrix[0].size(); i++) {
+        determinant += getCofactor(matrix, 0, i);
+    }
 
+    return determinant;
+}
+
+double getCofactor(const vector<vector<double>> & matrix, int elRow, int elColumn) {
+    double cofactor = pow(-1, elRow + elColumn) * matrix[elRow][elColumn]
+                      * calculateDeterminant(getSubmatrix(matrix, elRow, elColumn));
+    return cofactor;
 }
 
 vector<vector<double>> inverseMatrix(const vector<vector<double>> & matrix) {
+    vector<vector<double>> newMatrix;
 
+    for (int i = 0; i < matrix.size(); i++) {
+        newMatrix.emplace_back();
+        for (int j = 0; j < matrix[i].size(); j++) {
+            newMatrix[newMatrix.size() - 1].push_back(getCofactor(matrix, i, j));
+        }
+    }
+
+    newMatrix = transposeMatrix(newMatrix);
+    double determinant = calculateDeterminant(matrix);
+    for (vector<double> & row : newMatrix) {
+        for (double & value : row) {
+            value /= determinant;
+        }
+    }
+
+    return newMatrix;
+}
+
+vector<vector<double>> multiplyMatrices(const vector<vector<double>> & leftMatrix,
+                                        const vector<vector<double>> & rightMatrix) {
+    vector<vector<double>> multiplicationResult;
+
+    multiplicationResult.reserve(leftMatrix.size());
+    for (const vector<double> & row : leftMatrix) {
+        multiplicationResult.emplace_back();
+        for (const double & value : rightMatrix[0]) {
+            multiplicationResult[multiplicationResult.size() - 1].push_back(0.0);
+        }
+    }
+
+    for (int i = 0; i < rightMatrix[0].size(); i++) {
+        for (int j = 0; j < rightMatrix.size(); j++) {
+            for (int k = 0; k < leftMatrix.size(); k++) {
+                multiplicationResult[k][i] += rightMatrix[j][i] * leftMatrix[k][j];
+            }
+        }
+    }
+
+    return multiplicationResult;
 }
