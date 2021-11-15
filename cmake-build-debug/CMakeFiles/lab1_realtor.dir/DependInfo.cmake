@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.cpp" "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.obj"
+  "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.cpp" "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.obj"
   "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/main.cpp" "D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/cmake-build-debug/CMakeFiles/lab1_realtor.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

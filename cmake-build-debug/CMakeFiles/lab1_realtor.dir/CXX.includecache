@@ -6,6 +6,32 @@
 
 #IncludeRegexTransform: 
 
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.h
+iostream
+-
+vector
+-
+cmath
+-
+RealEstate.h
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/RealEstate.h
+
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.h
+vector
+-
+
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearRegression.h
+vector
+-
+RealEstate.h
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/RealEstate.h
+DataProcessing.h
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.h
+LinearAlgebra.h
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.h
+
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/RealEstate.h
+
 D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/main.cpp
 iostream
 -
@@ -13,6 +39,6 @@ string
 -
 vector
 -
-cmath
--
+LinearRegression.h
+D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearRegression.h
 

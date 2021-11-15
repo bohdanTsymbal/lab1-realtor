@@ -128,6 +128,54 @@ lab1_realtor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/build
 .PHONY : lab1_realtor/fast
 
+DataProcessing.obj: DataProcessing.cpp.obj
+.PHONY : DataProcessing.obj
+
+# target to build an object file
+DataProcessing.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.obj
+.PHONY : DataProcessing.cpp.obj
+
+DataProcessing.i: DataProcessing.cpp.i
+.PHONY : DataProcessing.i
+
+# target to preprocess a source file
+DataProcessing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.i
+.PHONY : DataProcessing.cpp.i
+
+DataProcessing.s: DataProcessing.cpp.s
+.PHONY : DataProcessing.s
+
+# target to generate assembly for a file
+DataProcessing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.s
+.PHONY : DataProcessing.cpp.s
+
+LinearAlgebra.obj: LinearAlgebra.cpp.obj
+.PHONY : LinearAlgebra.obj
+
+# target to build an object file
+LinearAlgebra.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.obj
+.PHONY : LinearAlgebra.cpp.obj
+
+LinearAlgebra.i: LinearAlgebra.cpp.i
+.PHONY : LinearAlgebra.i
+
+# target to preprocess a source file
+LinearAlgebra.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.i
+.PHONY : LinearAlgebra.cpp.i
+
+LinearAlgebra.s: LinearAlgebra.cpp.s
+.PHONY : LinearAlgebra.s
+
+# target to generate assembly for a file
+LinearAlgebra.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.s
+.PHONY : LinearAlgebra.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +209,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... lab1_realtor
+	@echo ... DataProcessing.obj
+	@echo ... DataProcessing.i
+	@echo ... DataProcessing.s
+	@echo ... LinearAlgebra.obj
+	@echo ... LinearAlgebra.i
+	@echo ... LinearAlgebra.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
