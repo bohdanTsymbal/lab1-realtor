@@ -1,77 +1,65 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "DataProcessing.h"
-#include "LinearAlgebra.h"
+#include "LinearRegression.h"
 
 using namespace std;
 
-void printMatrix(const vector<vector<double>> & matrix) {
-    for (const vector<double> & row : matrix) {
-        for (const double & value : row) {
-            cout << value << " ";
-        }
-        cout << endl;
-    }
+void printManual() {
+    cout << "Hi, let's try to predict your real estate cost!" << endl
+         << "First of all, we need some training data." << endl
+         << "Please follow these two pieces of advice so that the program works correctly:" << endl
+         << "1. Enter at least 6 units of real estate items as training data;" << endl
+         << "2. Try to provide the maximum variety of parameters values in the input data;" << endl
+         << "3. You should separate the parameters values by space and real estate units by a new line" << endl
+         << "(each item on a new line);" << endl
+         << "4. You should enter 0 as an area value to stop input of the data." << endl
+         << "Now we can start!" << endl
+         << "Please enter area (in square meters), a number of bedrooms, a number of toilets," << endl
+         << "time you need to get to the nearest subway station on foot (in minutes)," << endl
+         << "whether it is commercial or dwelling (enter 1 or 0 respectively) and cost (in US dollars):" << endl;
 }
 
 int main() {
+    printManual();
+
     double area, cost;
     int bedroomsNumber, toiletsNumber, subwayDistance;
     bool isCommercial;
-    vector<RealEstate> trainData;
-
-    cout << "Hi, let's try to predict your real estate cost!" << endl
-         << "First of all, we need some training data." << endl
-         << "Please enter area (in square meters), a number of bedrooms, a number of toilets, "
-            "time you need to get to the nearest subway station on foot (in minutes), whether it is "
-            "commercial or dwelling (type 1 or 0 respectively) and cost (in US dollars):" << endl
-         << "(You should separate values by space and estate items by new line (each item on a new line))" << endl;
+    vector<RealEstate> trainingData;
 
     cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial >> cost;
-    while (area != 0) {
-        RealEstate estate(area, bedroomsNumber, toiletsNumber, subwayDistance, isCommercial, cost);
-        trainData.push_back(estate);
+    while (area != 0 || trainingData.size() < 6) {
+        if (area == 0) {
+            cout << "Ooops, check the advice #1!" << endl;
+            cout << "Please continue entering the training data:" << endl;
+        } else {
+            RealEstate estate(area, bedroomsNumber, toiletsNumber, subwayDistance, isCommercial, cost);
+            trainingData.push_back(estate);
+        }
         cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial >> cost;
     }
 
-//    cout << "Now please enter the parameters of the estate item cost of which you would like to find out "
-//            "(the same way you have done it for the training data, but without cost obviously):" << endl;
+    LinearRegression regression;
+    regression.fit(trainingData);
 
-//    cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial;
-//    while(area != 0) {
-//
-//    }
+    cout << "Now please enter the parameters of the estate item cost of which you would like to find out" << endl
+         <<"(the same way you have done it for the training data, but without cost obviously):" << endl;
 
-    vector<vector<double>> trainMatrix = DataProcessing::transformToMatrix(trainData);
-    cout << "Training data:" << endl;
-    printMatrix(trainMatrix);
+    cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial;
+    while(area != 0) {
+        vector<RealEstate> testData;
+        RealEstate estate(area, bedroomsNumber, toiletsNumber, subwayDistance, isCommercial);
+        testData.push_back(estate);
 
-    vector<vector<double>> costVector = DataProcessing::decoupleTargetVariable(trainMatrix);
-    cout << "Target variable vector:" << endl;
-    printMatrix(costVector);
-    cout << "Training data matrix:" << endl;
-    printMatrix(trainMatrix);
+        double predictedCost = regression.predict(testData)[0][0];
+        cout << "The cost of this real estate item is " << predictedCost << " USD" << endl;
 
-    DataProcessing::addConstantColumn(trainMatrix);
-    cout << "Training data matrix with constant:" << endl;
-    printMatrix(trainMatrix);
+        cout << "You can enter the next unit if you want:" << endl;
+        cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial;
+    }
 
-    vector<vector<double>> transposedTrainMatrix = LinearAlgebra::transposeMatrix(trainMatrix);
-    cout << "Transposed training data matrix:" << endl;
-    printMatrix(transposedTrainMatrix);
-
-    vector<vector<double>> matricesMultiplication = LinearAlgebra::multiplyMatrices(transposedTrainMatrix, trainMatrix);
-    cout << "Matrices multiplication result:" << endl;
-    printMatrix(matricesMultiplication);
-
-    double matricesMultiplicationDeterminant = LinearAlgebra::calculateDeterminant(matricesMultiplication);
-    cout << "Determinant:" << endl;
-    cout << matricesMultiplicationDeterminant << endl;
-
-    vector<vector<double>> inversedMultiplication = LinearAlgebra::inverseMatrix(matricesMultiplication);
-    cout << "Inversed multiplication matrix:" << endl;
-    printMatrix(inversedMultiplication);
+    cout << "Thank you for using our program. We hope you have had enjoyable experience!" << endl;
 
     return 0;
 }

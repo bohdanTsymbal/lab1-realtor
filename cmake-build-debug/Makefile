@@ -176,30 +176,6 @@ LinearAlgebra.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.s
 .PHONY : LinearAlgebra.cpp.s
 
-LinearRegression.obj: LinearRegression.cpp.obj
-.PHONY : LinearRegression.obj
-
-# target to build an object file
-LinearRegression.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.obj
-.PHONY : LinearRegression.cpp.obj
-
-LinearRegression.i: LinearRegression.cpp.i
-.PHONY : LinearRegression.i
-
-# target to preprocess a source file
-LinearRegression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.i
-.PHONY : LinearRegression.cpp.i
-
-LinearRegression.s: LinearRegression.cpp.s
-.PHONY : LinearRegression.s
-
-# target to generate assembly for a file
-LinearRegression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.s
-.PHONY : LinearRegression.cpp.s
-
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -239,9 +215,6 @@ help:
 	@echo ... LinearAlgebra.obj
 	@echo ... LinearAlgebra.i
 	@echo ... LinearAlgebra.s
-	@echo ... LinearRegression.obj
-	@echo ... LinearRegression.i
-	@echo ... LinearRegression.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
