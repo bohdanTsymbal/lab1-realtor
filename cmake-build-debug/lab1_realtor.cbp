@@ -80,6 +80,27 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.cpp">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.h">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.cpp">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.h">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearRegression.cpp">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearRegression.h">
+			<Option target="lab1_realtor"/>
+		</Unit>
+		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/RealEstate.h">
+			<Option target="lab1_realtor"/>
+		</Unit>
 		<Unit filename="D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/main.cpp">
 			<Option target="lab1_realtor"/>
 		</Unit>

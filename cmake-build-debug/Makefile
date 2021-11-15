@@ -128,6 +128,78 @@ lab1_realtor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/build
 .PHONY : lab1_realtor/fast
 
+DataProcessing.obj: DataProcessing.cpp.obj
+.PHONY : DataProcessing.obj
+
+# target to build an object file
+DataProcessing.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.obj
+.PHONY : DataProcessing.cpp.obj
+
+DataProcessing.i: DataProcessing.cpp.i
+.PHONY : DataProcessing.i
+
+# target to preprocess a source file
+DataProcessing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.i
+.PHONY : DataProcessing.cpp.i
+
+DataProcessing.s: DataProcessing.cpp.s
+.PHONY : DataProcessing.s
+
+# target to generate assembly for a file
+DataProcessing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.s
+.PHONY : DataProcessing.cpp.s
+
+LinearAlgebra.obj: LinearAlgebra.cpp.obj
+.PHONY : LinearAlgebra.obj
+
+# target to build an object file
+LinearAlgebra.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.obj
+.PHONY : LinearAlgebra.cpp.obj
+
+LinearAlgebra.i: LinearAlgebra.cpp.i
+.PHONY : LinearAlgebra.i
+
+# target to preprocess a source file
+LinearAlgebra.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.i
+.PHONY : LinearAlgebra.cpp.i
+
+LinearAlgebra.s: LinearAlgebra.cpp.s
+.PHONY : LinearAlgebra.s
+
+# target to generate assembly for a file
+LinearAlgebra.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.s
+.PHONY : LinearAlgebra.cpp.s
+
+LinearRegression.obj: LinearRegression.cpp.obj
+.PHONY : LinearRegression.obj
+
+# target to build an object file
+LinearRegression.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.obj
+.PHONY : LinearRegression.cpp.obj
+
+LinearRegression.i: LinearRegression.cpp.i
+.PHONY : LinearRegression.i
+
+# target to preprocess a source file
+LinearRegression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.i
+.PHONY : LinearRegression.cpp.i
+
+LinearRegression.s: LinearRegression.cpp.s
+.PHONY : LinearRegression.s
+
+# target to generate assembly for a file
+LinearRegression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab1_realtor.dir\build.make CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.s
+.PHONY : LinearRegression.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +233,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... lab1_realtor
+	@echo ... DataProcessing.obj
+	@echo ... DataProcessing.i
+	@echo ... DataProcessing.s
+	@echo ... LinearAlgebra.obj
+	@echo ... LinearAlgebra.i
+	@echo ... LinearAlgebra.s
+	@echo ... LinearRegression.obj
+	@echo ... LinearRegression.i
+	@echo ... LinearRegression.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

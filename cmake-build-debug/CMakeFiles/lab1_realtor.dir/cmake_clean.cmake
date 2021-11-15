@@ -1,4 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/lab1_realtor.dir/DataProcessing.cpp.obj"
+  "CMakeFiles/lab1_realtor.dir/LinearAlgebra.cpp.obj"
+  "CMakeFiles/lab1_realtor.dir/LinearRegression.cpp.obj"
   "CMakeFiles/lab1_realtor.dir/main.cpp.obj"
   "lab1_realtor.exe"
   "lab1_realtor.exe.manifest"
