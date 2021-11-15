@@ -11,15 +11,6 @@
 
 using namespace std;
 
-void printMatrix(const vector<vector<double>> & matrix) {
-    for (const vector<double> & row : matrix) {
-        for (const double & value : row) {
-            cout << value << " ";
-        }
-        cout << endl;
-    }
-}
-
 class LinearRegression {
     private:
         vector<vector<double>> weights;
@@ -30,6 +21,7 @@ class LinearRegression {
         void fit(const vector<RealEstate> & trainingData) {
             vector<vector<double>> trainingMatrix = DataProcessing::transformToMatrix(trainingData);
             vector<vector<double>> costVector = DataProcessing::decoupleTargetVariable(trainingMatrix);
+            DataProcessing::applyLogToMatrix(costVector);
             DataProcessing::addConstantColumn(trainingMatrix);
             vector<vector<double>> transposedTrainingMatrix = LinearAlgebra::transposeMatrix(trainingMatrix);
             vector<vector<double>> multiplication1 =
@@ -41,23 +33,12 @@ class LinearRegression {
         }
         vector<vector<double>> predict(const vector<RealEstate> & testData) {
             vector<vector<double>> testVector = DataProcessing::transformToMatrix(testData);
-            cout << "testVector" << endl;
-            printMatrix(testVector);
             DataProcessing::decoupleTargetVariable(testVector);
-            cout << "testVector" << endl;
-            printMatrix(testVector);
             DataProcessing::addConstantColumn(testVector);
-            cout << "testVector" << endl;
-            printMatrix(testVector);
             testVector = LinearAlgebra::transposeMatrix(testVector);
-            cout << "transposed testVector" << endl;
-            printMatrix(testVector);
             vector<vector<double>> transposedWeights = LinearAlgebra::transposeMatrix(weights);
-            cout << "transposedWeights" << endl;
-            printMatrix(transposedWeights);
             vector<vector<double>> result = LinearAlgebra::multiplyMatrices(transposedWeights, testVector);
-            cout << "result" << endl;
-            printMatrix(result);
+            DataProcessing::applyExpToMatrix(result);
             return result;
         }
 };

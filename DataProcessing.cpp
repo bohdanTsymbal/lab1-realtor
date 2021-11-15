@@ -35,3 +35,19 @@ void DataProcessing::addConstantColumn(vector<vector<double>> & dataMatrix) {
         observation.insert(observation.begin(), 1.0);
     }
 }
+
+void DataProcessing::applyLogToMatrix(vector<vector<double>> & dataMatrix) {
+    for (vector<double> & row : dataMatrix) {
+        for (double & value : row) {
+            value = log(value);
+        }
+    }
+}
+
+void DataProcessing::applyExpToMatrix(vector<vector<double>> & dataMatrix) {
+    for (vector<double> & row : dataMatrix) {
+        for (double & value : row) {
+            value = exp(value);
+        }
+    }
+}
