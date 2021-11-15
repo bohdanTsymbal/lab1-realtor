@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 #include "LinearRegression.h"
 
 using namespace std;
@@ -35,7 +33,12 @@ int main() {
             cout << "Please continue entering the training data:" << endl;
         } else {
             RealEstate estate(area, bedroomsNumber, toiletsNumber, subwayDistance, isCommercial, cost);
-            trainingData.push_back(estate);
+
+            string errorMessage;
+            if (estate.isValid(errorMessage))
+                trainingData.push_back(estate);
+            else
+                cout << errorMessage << endl;
         }
         cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial >> cost;
     }
@@ -50,10 +53,16 @@ int main() {
     while(area != 0) {
         vector<RealEstate> testData;
         RealEstate estate(area, bedroomsNumber, toiletsNumber, subwayDistance, isCommercial);
-        testData.push_back(estate);
 
-        double predictedCost = regression.predict(testData)[0][0];
-        cout << "The cost of this real estate item is " << predictedCost << " USD" << endl;
+        string errorMessage;
+        if (estate.isValid(errorMessage)) {
+            testData.push_back(estate);
+            double predictedCost = regression.predict(testData)[0][0];
+            cout << "The cost of this real estate item is " << predictedCost << " USD" << endl;
+        }
+        else {
+            cout << errorMessage << endl;
+        }
 
         cout << "You can enter the next unit if you want:" << endl;
         cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial;

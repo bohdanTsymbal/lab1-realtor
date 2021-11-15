@@ -3,7 +3,6 @@
 //
 
 #include "LinearAlgebra.h"
-#include <cmath>
 
 vector<vector<double>> LinearAlgebra::transposeMatrix(const vector<vector<double>> & matrix) {
     vector<vector<double>> transposedMatrix;
