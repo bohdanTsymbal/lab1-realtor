@@ -179,29 +179,29 @@ double calculateDeterminant(const vector<vector<double>> & matrix) {
 
     double determinant = 0.0;
     for (int i = 0; i < matrix[0].size(); i++) {
-        determinant += getCofactor(matrix, 0, i);
+        determinant += matrix[0][i] * getCofactor(matrix, 0, i);
     }
 
     return determinant;
 }
 
 double getCofactor(const vector<vector<double>> & matrix, int elRow, int elColumn) {
-    double cofactor = pow(-1, elRow + elColumn) * matrix[elRow][elColumn]
-                      * calculateDeterminant(getSubmatrix(matrix, elRow, elColumn));
+    double cofactor = pow(-1, elRow + elColumn)
+            * calculateDeterminant(getSubmatrix(matrix, elRow, elColumn));
     return cofactor;
 }
 
 vector<vector<double>> inverseMatrix(const vector<vector<double>> & matrix) {
+    vector<vector<double>> transposedMatrix = transposeMatrix(matrix);
     vector<vector<double>> newMatrix;
 
-    for (int i = 0; i < matrix.size(); i++) {
+    for (int i = 0; i < transposedMatrix.size(); i++) {
         newMatrix.emplace_back();
-        for (int j = 0; j < matrix[i].size(); j++) {
-            newMatrix[newMatrix.size() - 1].push_back(getCofactor(matrix, i, j));
+        for (int j = 0; j < transposedMatrix[i].size(); j++) {
+            newMatrix[newMatrix.size() - 1].push_back(getCofactor(transposedMatrix, i, j));
         }
     }
 
-    newMatrix = transposeMatrix(newMatrix);
     double determinant = calculateDeterminant(matrix);
     for (vector<double> & row : newMatrix) {
         for (double & value : row) {
