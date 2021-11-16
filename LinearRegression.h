@@ -4,7 +4,6 @@
 
 #ifndef LAB1_REALTOR_LINEARREGRESSION_H
 #define LAB1_REALTOR_LINEARREGRESSION_H
-#include <vector>
 #include "RealEstate.h"
 #include "DataProcessing.h"
 #include "LinearAlgebra.h"

@@ -5,6 +5,7 @@
 #ifndef LAB1_REALTOR_LINEARALGEBRA_H
 #define LAB1_REALTOR_LINEARALGEBRA_H
 #include <vector>
+#include <cmath>
 
 using namespace std;
 

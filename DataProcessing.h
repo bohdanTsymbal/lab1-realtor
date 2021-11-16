@@ -4,7 +4,6 @@
 
 #ifndef LAB1_REALTOR_DATAPROCESSING_H
 #define LAB1_REALTOR_DATAPROCESSING_H
-#include <iostream>
 #include <vector>
 #include <cmath>
 #include "RealEstate.h"
