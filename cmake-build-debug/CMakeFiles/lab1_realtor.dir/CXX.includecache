@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.cpp
-DataProcessing.h
-D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.h
-
 D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/DataProcessing.h
 vector
 -
@@ -17,10 +13,6 @@ cmath
 -
 RealEstate.h
 D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/RealEstate.h
-
-D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.cpp
-LinearAlgebra.h
-D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.h
 
 D:/University/Programming/Labs/Lab1_Realtor/lab1-realtor/LinearAlgebra.h
 vector

@@ -37,8 +37,10 @@ int main() {
             string errorMessage;
             if (estate.isValid(errorMessage))
                 trainingData.push_back(estate);
-            else
+            else {
                 cout << errorMessage << endl;
+                cout << "You can continue entering the training data:" << endl;
+            }
         }
         cin >> area >> bedroomsNumber >> toiletsNumber >> subwayDistance >> isCommercial >> cost;
     }
